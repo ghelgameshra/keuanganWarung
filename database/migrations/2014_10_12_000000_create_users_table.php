@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->int('shift');
+            $table->char('pimshift', 1)->default('Y');
+            $table->int('kode_cabang');
+            $table->char('kode_toko');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
