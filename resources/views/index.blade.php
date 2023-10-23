@@ -20,7 +20,7 @@
     </div>
   </nav>
 
-  <main class="px-10 py-5 my-auto relative sm:w-[600px] mx-auto">
+  <main class="px-10 py-5 my-auto relative sm:w-[600px] mx-auto main-bg">
     <div class="bg-secondary shadow-md text-white w-20 h-20 rounded-full mx-auto flex items-center place-content-center absolute top-3 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
       <i class="fa-solid fa-user text-3xl"></i>
     </div>

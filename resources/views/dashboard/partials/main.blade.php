@@ -9,12 +9,11 @@
   <script src="{{ asset('/js/code.jquery.com_jquery-3.7.1.js') }}"></script>
 </head>
 
-<body class="h-screen flex flex-col main-bg overflow-y-auto">
+<body class="h-screen flex flex-col overflow-y-auto bg-slate-200">
   @include('dashboard.partials.navbar')
 
-  <main class="px-10 py-5 my-auto relative w-full sm:w-[600px] mx-auto">
-    @yield('dashboard')
-  </main>
+
+  @yield('dashboard')
 
 
 

@@ -1,4 +1,4 @@
-<nav class="text-white w-full shadow-md px-10 py-5 flex items-center z-30">
+<nav class="text-white main-bg w-full shadow-md px-10 py-5 flex items-center z-30 fixed">
   <div>
     <h1 class="font-bold">Monitoring Keuangan</h1>
   </div>
