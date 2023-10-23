@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kas_aktual', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unique();
             $table->char('kode_toko', 4);
-            $table->int('shift', 1);
-            $table->int('pimshift');
-            $table->int('aktual_kas');
-            $table->int('tabungan');
+            $table->integer('shift');
+            $table->integer('pimshift');
+            $table->integer('aktual_kas');
+            $table->integer('tabungan')->nullable();
             $table->timestamps();
         });
     }
