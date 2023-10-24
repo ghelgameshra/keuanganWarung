@@ -1,7 +1,7 @@
 @extends('dashboard.partials.main')
 
 @section('title')
-  Monitoring | Input Aktual Kas
+  Monitoring | Dashboard
 @endsection
 
 @section('dashboard')

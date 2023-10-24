@@ -23,19 +23,23 @@ class DatabaseSeeder extends Seeder
             'pimshift2' => 2,
         ]);
 
+        Toko::create([
+            'kode_toko' => 'TGJY',
+            'alamat' => 'Jl. Terusan Surabaya',
+            'kode_cabang' => 1,
+            'pimshift1' => 3,
+            'pimshift2' => 4,
+        ]);
+
         User::create([
             'name' => 'Rizky Andriawan',
             'email' => 'rizkyandriawan33478@gmail.com',
-            'shift' => 1,
-            'kode_toko' => 1,
             'password' => bcrypt('1234')
         ]);
 
         User::create([
             'name' => 'Andriawan',
             'email' => 'rizkyandriawan@gmail.com',
-            'shift' => 2,
-            'kode_toko' => 1,
             'password' => bcrypt('1234')
         ]);
 

@@ -14,6 +14,7 @@
 
 
   @yield('dashboard')
+  @yield('laporan')
 
 
 

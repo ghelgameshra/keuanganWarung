@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+[x-cloak] {
+    display: none;
+}
 
 .main-bg{
     @apply bg-gradient-to-br from-blue-500 to-purple-600;
