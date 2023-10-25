@@ -18,6 +18,9 @@
   @yield('user_show')
 
 
+  @yield('cek_input')
+
+
 
   @include('dashboard.partials.footer')
   <script src="{{ asset('/fontawesome/js/all.js') }}"></script>
@@ -38,6 +41,7 @@
 
     }
   </script>
+  @stack('inputAktualScript')
 </body>
 
 </html>

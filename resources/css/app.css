@@ -17,3 +17,7 @@
 .page-initial{
     @apply px-10 py-20;
 }
+
+.laporan-input{
+    @apply border-[1px] border-gray-400 rounded-lg text-sm focus:outline-none focus:ring-0 text-dark-secondary;
+}

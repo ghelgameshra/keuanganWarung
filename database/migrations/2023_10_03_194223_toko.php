@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('toko', function (Blueprint $table) {
             $table->increments('id')->unique();
-            $table->char('kode_toko', 4);
+            $table->char('kode_toko', 6);
             $table->string('alamat');
-            $table->char('kode_cabang', 3);
+            $table->char('kode_cabang', 5);
             $table->integer('pimshift1');
             $table->integer('pimshift2');
             $table->timestamps();

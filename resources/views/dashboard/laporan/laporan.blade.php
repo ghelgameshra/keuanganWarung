@@ -25,7 +25,7 @@
           @elseif($data->approved === 'N')
           <i class="fa-regular fa-circle-xmark text-red-500"></i>
           @else
-          <i class="fa-solid fa-spinner text-yellow-500"></i>
+          <i class="fa-solid fa-spinner text-yellow-500 animate-spin"></i>
           @endif
         </div>
 

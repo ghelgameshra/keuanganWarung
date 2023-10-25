@@ -1,6 +1,6 @@
 @extends('dashboard.partials.main')
 @section('title')
-  Laporan | {{ $laporan->id_laporan }}
+  Laporan | Input
 @endsection
 
 @section('laporan')
@@ -18,21 +18,10 @@
     <div class="flex flex-col gap-3">
       {{-- laporan detail --}}
       <div class="flex flex-col gap-4 bg-white rounded-md px-4 py-5">
-        <div class="mx-auto text-center py-5 flex flex-col gap-3">
-          @if ($laporan->approved === 'Y')
-          <i class="text-3xl fa-regular fa-circle-check text-green-500"></i>
-          <p class="font-xs text-green-500">Diterima</p>
-          @elseif($laporan->approved === 'N')
-          <i class="text-3xl fa-regular fa-circle-xmark text-red-500"></i>
-          <p class="font-xs text-red-500">Ditolak</p>
-          @else
-          <i class="text-3xl fa-solid fa-spinner text-yellow-500 animate-spin"></i>
-          <p class="font-xs text-yellow-500">Dalam Pengecekan</p>
-          @endif
-        </div>
+
 
         <div>
-          @include('dashboard.laporan.tabel')
+          @include('dashboard.laporan.tabel_input')
         </div>
 
       </div>
@@ -44,3 +33,18 @@
   </div>
 </main>
 @endsection
+@push('inputAktualScript')
+<script>
+  let inputAktualKas = $('#inputAktualKas');
+  let tabungan = $('#tabungan');
+  let aktualKas = $('#aktualKas');
+
+  inputAktualKas.on('keyup', function(){
+    tabungan.val( inputAktualKas.val()*2.5/100 );
+  });
+
+  tabungan.on('keyup', function(){
+    aktualKas.val( inputAktualKas.val()-tabungan.val() );
+  });
+</script>
+@endpush

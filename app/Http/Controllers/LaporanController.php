@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Laporan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -22,7 +23,14 @@ class LaporanController extends Controller
      */
     public function create()
     {
-        //
+        $id_laporan_temp = now()->format('ymd') . userActive()[0]->kode_toko. userActive()[0]->shift;
+
+        if( $id_laporan_temp === Controller::getDataId() ){
+            return view('dashboard.laporan.sudah_input');
+        }
+
+
+        return view('dashboard.laporan.laporan_input');
     }
 
     /**
@@ -30,7 +38,33 @@ class LaporanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // get data laporan terakhir
+        $data = Controller::getDataId();
+
+        $rules = [
+            'id_laporan' => 'required|String',
+            'kode_toko' => 'required|String|max:6',
+            'shift' => 'required|Integer|max:3',
+            'tabungan' => 'required|Integer|min:0',
+            'input_aktual_kas' => 'required|Integer',
+        ];
+
+        $validatedData = $request->validate($rules);
+        $validatedData['nik'] = userActive()[0]->nik;
+
+
+        $validatedData['aktual_kas'] = $validatedData['input_aktual_kas'] - $validatedData['tabungan'];
+
+        if( $validatedData['id_laporan'] === $data ){
+            return back(dd( tanggal_indonesia(Carbon::yesterday()) ));
+        }
+
+        try {
+            Laporan::create($validatedData);
+        } catch (\Throwable $th) {
+            dd($th);
+        }
+        return redirect('/dashboard/laporan/'. $validatedData['id_laporan'] )->with('success', 'Input Aktual Kas Berhasil');
     }
 
     /**

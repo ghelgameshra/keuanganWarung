@@ -4,7 +4,7 @@
 @endsection
 
 @section('user_show')
-<main class="page-initial flex flex-col gap-5">
+<main class="page-initial flex flex-col gap-5 w-full sm:w-[600px] h-screen mx-auto">
   <div class="text-dark-secondary flex items-center gap-3">
     <img src="{{ "/storage/" . auth()->user()->profile_photo_path }}" alt="" class="w-14 h-14 rounded-full">
     <div>

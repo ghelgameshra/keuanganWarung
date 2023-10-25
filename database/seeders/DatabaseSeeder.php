@@ -10,6 +10,7 @@ use App\Models\Cabang;
 use App\Models\Jabatan;
 use App\Models\Karyawan;
 use App\Models\Laporan;
+use Carbon\Carbon;
 
 class DatabaseSeeder extends Seeder
 {
@@ -106,9 +107,15 @@ class DatabaseSeeder extends Seeder
             'kode_toko' => 'TSBY'
         ]);
 
+        Karyawan::create([
+            'nama_karyawan' => 'ANDRIAWAN',
+            'nik' => '2015451200',
+            'kode_toko' => 'TGJY'
+        ]);
+
 
         Laporan::create([
-            'id_laporan' => '231023TSBY1',
+            'id_laporan' => '231022TSBY1',
             'nik' => '2015451256',
             'kode_toko' => 'TSBY',
             'shift' => 1,
@@ -119,17 +126,18 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Laporan::create([
-            'id_laporan' => '231024TSBY1',
+            'id_laporan' => '231023TSBY1',
             'nik' => '2015451256',
             'kode_toko' => 'TSBY',
             'shift' => 1,
             'input_aktual_kas' => 2000000,
             'tabungan' => 2000000*2.5/100,
-            'aktual_kas' => 2000000-(2000000*2.5/100)
+            'aktual_kas' => 2000000-(2000000*2.5/100),
+            'approved' => 'Y'
         ]);
 
         Laporan::create([
-            'id_laporan' => now()->format('ymd')."TSBY1",
+            'id_laporan' => Carbon::yesterday()->format('ymd')."TSBY1",
             'nik' => '2015451256',
             'kode_toko' => 'TSBY',
             'shift' => 1,

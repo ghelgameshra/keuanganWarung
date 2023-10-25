@@ -22,8 +22,8 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
     ])->group(function () {
+        Route::get('/dashboard', function () { return view('dashboard.dashboard'); })->name('dashboard');
         Route::get('/dashboard/profile', [DashboardController::class, 'profile']);
         Route::resource('/dashboard/laporan', LaporanController::class);
-        Route::get('/dashboard', function () { return view('dashboard.dashboard'); })->name('dashboard');
     });
 
