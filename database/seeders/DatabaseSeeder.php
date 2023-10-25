@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Rizky Andriawan',
             'nik' => '2015451256',
             'email' => 'rizkyandriawan33478@gmail.com',
+            'profile_photo_path' => '/images/QTBq9O.jpg',
             'password' => bcrypt('1234')
         ]);
 
@@ -45,6 +46,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Andriawan',
             'nik' => '2015451200',
             'email' => 'rizkyandriawan@gmail.com',
+            'profile_photo_path' => '/images/QTBq9O.jpg',
             'password' => bcrypt('1234')
         ]);
 
@@ -105,6 +107,16 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+        Laporan::create([
+            'id_laporan' => '231023TSBY1',
+            'nik' => '2015451256',
+            'kode_toko' => 'TSBY',
+            'shift' => 1,
+            'input_aktual_kas' => 1215000,
+            'tabungan' => 1215000*2.5/100,
+            'aktual_kas' => 1215000-(1215000*2.5/100),
+            'approved' => 'N'
+        ]);
 
         Laporan::create([
             'id_laporan' => '231024TSBY1',
@@ -123,7 +135,8 @@ class DatabaseSeeder extends Seeder
             'shift' => 1,
             'input_aktual_kas' => 1300000,
             'tabungan' => 1300000*2.5/100,
-            'aktual_kas' => 1300000-(1300000*2.5/100)
+            'aktual_kas' => 1300000-(1300000*2.5/100),
+            'approved' => ''
         ]);
     }
 }

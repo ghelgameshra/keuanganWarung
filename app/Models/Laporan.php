@@ -9,4 +9,8 @@ class Laporan extends Model
 {
     protected $table = 'laporan';
     use HasFactory;
+
+    public function  getRouteKeyName(){
+        return 'id_laporan';
+    }
 }

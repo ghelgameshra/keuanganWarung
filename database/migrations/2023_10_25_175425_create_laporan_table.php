@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('input_aktual_kas');
             $table->integer('tabungan');
             $table->integer('aktual_kas');
+            $table->char('approved')->nullable()->default('Y');
             $table->timestamps();
         });
     }

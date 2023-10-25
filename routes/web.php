@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LaporanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,14 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', fn() => redirect()->route('login'));
-Route::get('/dashboard/profile', [DashboardController::class, 'profile']);
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard.dashboard');
-    })->name('dashboard');
-});
+    ])->group(function () {
+        Route::get('/dashboard/profile', [DashboardController::class, 'profile']);
+        Route::resource('/dashboard/laporan', LaporanController::class);
+        Route::get('/dashboard', function () { return view('dashboard.dashboard'); })->name('dashboard');
+    });
+
