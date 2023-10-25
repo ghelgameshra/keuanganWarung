@@ -1,6 +1,8 @@
 <?php
 use app\Http\Helpers\Hitung as Hitung;
 use Illuminate\Support\Carbon;
+use App\Models\Karyawan;
+use Illuminate\Support\Facades\DB;
 
 function format_uang($angka){
     return number_format($angka, 0, ',', '.');
@@ -42,3 +44,11 @@ function nama_perusahaan(){
     // return "Tiga Warna";
 }
 
+function userActive(){
+    $nik = auth()->user()->nik;
+
+    return DB::table('karyawan')->where('nik', $nik)
+    ->join('jabatan', 'karyawan.jabatan', '=', 'jabatan.id')
+    ->select('karyawan.*', 'jabatan.nama_jabatan')
+    ->get();
+}

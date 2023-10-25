@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', fn() => redirect()->route('login'));
+Route::get('/dashboard/profile', [DashboardController::class, 'profile']);
 
 Route::middleware([
     'auth:sanctum',
@@ -21,6 +23,6 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('dashboard.dashboard');
     })->name('dashboard');
 });

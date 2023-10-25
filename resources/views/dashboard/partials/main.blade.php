@@ -15,10 +15,11 @@
 
   @yield('dashboard')
   @yield('laporan')
+  @yield('user_show')
 
 
 
-
+  @include('dashboard.partials.footer')
   <script src="{{ asset('/fontawesome/js/all.js') }}"></script>
   <script>
     function showPassword(){

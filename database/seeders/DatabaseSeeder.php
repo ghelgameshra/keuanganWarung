@@ -7,6 +7,9 @@ use Illuminate\Database\Seeder;
 use App\Models\Toko;
 use App\Models\User;
 use App\Models\Cabang;
+use App\Models\Jabatan;
+use App\Models\Karyawan;
+use App\Models\Laporan;
 
 class DatabaseSeeder extends Seeder
 {
@@ -33,12 +36,14 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'Rizky Andriawan',
+            'nik' => '2015451256',
             'email' => 'rizkyandriawan33478@gmail.com',
             'password' => bcrypt('1234')
         ]);
 
         User::create([
             'name' => 'Andriawan',
+            'nik' => '2015451200',
             'email' => 'rizkyandriawan@gmail.com',
             'password' => bcrypt('1234')
         ]);
@@ -49,6 +54,76 @@ class DatabaseSeeder extends Seeder
 
         Cabang::create([
             'kode_cabang' => 'JBR'
+        ]);
+
+
+
+        Jabatan::create([
+            'nama_jabatan' => 'OWNER'
+        ]);
+
+        Jabatan::create([
+            'nama_jabatan' => 'MANAGER'
+        ]);
+
+        Jabatan::create([
+            'nama_jabatan' => 'SUPERVISOR'
+        ]);
+
+        Jabatan::create([
+            'nama_jabatan' => 'ADMIN'
+        ]);
+
+        Jabatan::create([
+            'nama_jabatan' => 'CHIEF OF STORE'
+        ]);
+
+        Jabatan::create([
+            'nama_jabatan' => 'CASHIER'
+        ]);
+
+        Jabatan::create([
+            'nama_jabatan' => 'CHEF'
+        ]);
+
+        Jabatan::create([
+            'nama_jabatan' => 'WAITER'
+        ]);
+
+        Jabatan::create([
+            'nama_jabatan' => 'DRIVER'
+        ]);
+
+        Jabatan::create([
+            'nama_jabatan' => 'INTERN'
+        ]);
+
+        Karyawan::create([
+            'nama_karyawan' => 'RIZKY ANDRIAWAN',
+            'nik' => '2015451256',
+            'kode_toko' => 'TSBY'
+        ]);
+
+
+
+        Laporan::create([
+            'id_laporan' => '231024TSBY1',
+            'nik' => '2015451256',
+            'kode_toko' => 'TSBY',
+            'shift' => 1,
+            'input_aktual_kas' => 2000000,
+            'tabungan' => 2000000*2.5/100,
+            'aktual_kas' => 2000000-(2000000*2.5/100)
+        ]);
+
+        Laporan::create([
+            'id_laporan' => now()->format('ymd')."TSBY1",
+            'nik' => '2015451256',
+            'kode_toko' => 'TSBY',
+            'shift' => 1,
+            'input_aktual_kas' => 1300000,
+            'tabungan' => 1300000*2.5/100,
+            'aktual_kas' => 1300000-(1300000*2.5/100)
         ]);
     }
 }
