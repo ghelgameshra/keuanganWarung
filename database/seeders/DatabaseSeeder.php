@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'Super Admin',
-            'nik' => '0000000000',
+            'nik' => '2015451300',
             'email' => 'superadmin@gmail.com',
             'level' => 1,
         ]);
