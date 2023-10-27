@@ -14,6 +14,11 @@ class karyawan_seeder extends Seeder
     public function run(): void
     {
         Karyawan::create([
+            'nama_karyawan' => 'RIZKY ANDRIAWAN SADM',
+            'nik' => '0000000000',
+        ]);
+
+        Karyawan::create([
             'nama_karyawan' => 'RIZKY ANDRIAWAN',
             'nik' => '2015451256',
             'kode_toko' => 'TSBY'

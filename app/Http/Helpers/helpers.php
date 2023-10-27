@@ -52,3 +52,7 @@ function userActive(){
     ->select('karyawan.*', 'jabatan.nama_jabatan')
     ->get();
 }
+
+function getUserRole(){
+    return auth()->user()->level;
+}

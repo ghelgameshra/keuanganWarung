@@ -14,11 +14,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            jabatan_seeder::class,
+            karyawan_seeder::class,
+            laporan_seeder::class,
+            level_seeder::class,
+            toko_seeder::class
+        ]);
+
+        User::create([
+            'name' => 'Super Admin',
+            'nik' => '0000000000',
+            'email' => 'superadmin@gmail.com',
+            'level' => 1,
+        ]);
+
+
         User::create([
             'name' => 'Rizky Andriawan',
             'nik' => '2015451256',
             'email' => 'rizkyandriawan33478@gmail.com',
-            'level' => 1,
+            'level' => 2,
         ]);
 
         User::create([

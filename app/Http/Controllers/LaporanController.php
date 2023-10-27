@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Laporan;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -13,9 +12,16 @@ class LaporanController extends Controller
      */
     public function index(Request $request)
     {
-        return view('dashboard.laporan.laporan', [
-            'laporan' => Laporan::where('nik', auth()->user()->nik)->orderBy('id_laporan', 'desc')->get()
-        ]);
+        if(getUserRole() == 1){
+            return view('admin.laporan.laporan', [
+                'laporan' => Laporan::orderBy('id_laporan', 'desc')->get()
+            ]);
+        } else {
+            return view('dashboard.laporan.laporan', [
+                'laporan' => Laporan::where('nik', auth()->user()->nik)->orderBy('id_laporan', 'desc')->get()
+            ]);
+        }
+
     }
 
     /**
@@ -69,9 +75,15 @@ class LaporanController extends Controller
      */
     public function show(Laporan $laporan)
     {
-        return view('dashboard.laporan.laporan_detail', [
-            'laporan' => $laporan
-        ]);
+        if( getUserRole() == 1 ){
+            return view('admin.laporan.laporanDetail', [
+                'laporan' => $laporan
+            ]);
+        } else {
+            return view('dashboard.laporan.laporan_detail', [
+                'laporan' => $laporan
+            ]);
+        }
     }
 
     /**
@@ -79,7 +91,12 @@ class LaporanController extends Controller
      */
     public function edit(Laporan $laporan)
     {
-        //
+        if(getUserRole() > 1){
+            abort(403);
+        }
+        return view('admin.laporan.laporanEdit', [
+            'laporan' => $laporan
+        ]);
     }
 
     /**
@@ -87,7 +104,27 @@ class LaporanController extends Controller
      */
     public function update(Request $request, Laporan $laporan)
     {
-        //
+        // dd($laporan, $request);
+        $rules = [
+            'approved' => 'required|max:2',
+            'alasan' => 'string|nullable',
+        ];
+
+        $validatedData = $request->validate($rules);
+        $validatedData['id'] = $laporan->id;
+        $validatedData['id_laporan'] = $laporan->id_laporan;
+        $validatedData['docno'] = $laporan->docno;
+        $validatedData['nik'] = $laporan->nik;
+        $validatedData['kode_toko'] = $laporan->kode_toko;
+        $validatedData['shift'] = $laporan->shift;
+        $validatedData['input_aktual_kas'] = $laporan->input_aktual_kas;
+        $validatedData['tabungan'] = $laporan->tabungan;
+        $validatedData['aktual_kas'] = $laporan->aktual_kas;
+        $validatedData['checker'] = auth()->user()->nik;
+
+        // dd($validatedData);
+        Laporan::where('id', $laporan->id)->update($validatedData);
+        return redirect('/dashboard/laporan/'. $validatedData['id_laporan'] )->with('success', 'Data Laporan Berhasil Diperbarui');
     }
 
     /**
