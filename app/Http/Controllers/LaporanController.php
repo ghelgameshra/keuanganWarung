@@ -14,11 +14,11 @@ class LaporanController extends Controller
     {
         if(getUserRole() == 1){
             return view('admin.laporan.laporan', [
-                'laporan' => Laporan::orderBy('id_laporan', 'desc')->get()
+                'laporan' => Laporan::orderBy('docno', 'desc')->get()
             ]);
         } else {
             return view('dashboard.laporan.laporan', [
-                'laporan' => Laporan::where('nik', auth()->user()->nik)->orderBy('id_laporan', 'desc')->get()
+                'laporan' => Laporan::where('nik', auth()->user()->nik)->orderBy('docno', 'desc')->get()
             ]);
         }
 

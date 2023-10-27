@@ -7,12 +7,7 @@
 <main class="relative w-full sm:w-[600px] h-screen mx-auto">
   {{-- laporan content --}}
   <div class="px-10 py-20 flex flex-col gap-4 overflow-y-auto">
-    <h1 class="font-bold text-lg">Laporan Saya</h1>
-
-    <a href="/dashboard/laporan/create" class="bg-white rounded-md flex flex-col items-center py-5 text-white main-bg">
-      <i class="fa-solid fa-plus"></i>
-      <p class="font-bold">Laporan Baru</p>
-    </a>
+    <h1 class="font-bold text-lg">Daftar Laporan</h1>
 
     {{-- laporan history container --}}
     <div class="flex flex-col gap-3">
