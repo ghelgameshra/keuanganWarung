@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
     {
         Toko::create([
             'kode_toko' => 'TSBY',
-            'alamat' => 'Jl. Terusan Surabaya',
             'kode_cabang' => 1,
             'pimshift1' => 1,
             'pimshift2' => 2,
@@ -29,7 +28,6 @@ class DatabaseSeeder extends Seeder
 
         Toko::create([
             'kode_toko' => 'TGJY',
-            'alamat' => 'Jl. Terusan Surabaya',
             'kode_cabang' => 1,
             'pimshift1' => 3,
             'pimshift2' => 4,
@@ -39,16 +37,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'Rizky Andriawan',
             'nik' => '2015451256',
             'email' => 'rizkyandriawan33478@gmail.com',
-            'profile_photo_path' => '/images/QTBq9O.jpg',
-            'password' => bcrypt('1234')
         ]);
 
         User::create([
             'name' => 'Andriawan',
             'nik' => '2015451200',
             'email' => 'rizkyandriawan@gmail.com',
-            'profile_photo_path' => '/images/QTBq9O.jpg',
-            'password' => bcrypt('1234')
         ]);
 
         Cabang::create([
@@ -116,6 +110,7 @@ class DatabaseSeeder extends Seeder
 
         Laporan::create([
             'id_laporan' => '231022TSBY1',
+            'docno' => 1,
             'nik' => '2015451256',
             'kode_toko' => 'TSBY',
             'shift' => 1,
@@ -127,6 +122,7 @@ class DatabaseSeeder extends Seeder
 
         Laporan::create([
             'id_laporan' => '231023TSBY1',
+            'docno' => 2,
             'nik' => '2015451256',
             'kode_toko' => 'TSBY',
             'shift' => 1,
@@ -138,6 +134,7 @@ class DatabaseSeeder extends Seeder
 
         Laporan::create([
             'id_laporan' => Carbon::yesterday()->format('ymd')."TSBY1",
+            'docno' => 3,
             'nik' => '2015451256',
             'kode_toko' => 'TSBY',
             'shift' => 1,

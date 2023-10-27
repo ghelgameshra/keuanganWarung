@@ -1,5 +1,5 @@
 <div class="relative overflow-x-auto">
-  <form action="/dashboard/laporan/" method="POST">
+  <form action="/dashboard/laporan" method="POST">
   @csrf
   <table class="w-full text-sm text-left text-dark-secondary bg-gray-100 rounded-lg">
       <tbody>
@@ -41,7 +41,7 @@
                 Shift
             </th>
             <td class="px-6 py-3">
-              <input type="text" name="shift" class="laporan-input" value="{{ userActive()[0]->shift }}">
+              <input type="text" name="shift" class="laporan-input" value="{{ userActive()[0]->shift }}" readonly>
               @error('shift')
                 <small class="text-red-500">{{ $message }}</small>
                 @enderror

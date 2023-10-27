@@ -13,7 +13,6 @@ class Controller extends BaseController
 
     public function getDataId(){
         // get data laporan terakhir
-        $data = Laporan::orderBy('id_laporan', 'desc')->first();
-        return $data->id_laporan;
+        return Laporan::orderBy('id_laporan', 'desc')->first();
     }
 }

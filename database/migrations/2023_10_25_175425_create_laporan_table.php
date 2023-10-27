@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('laporan', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('id_laporan')->unique();
+            $table->char('id_laporan');
+            $table->integer('docno');
             $table->string('nik');
             $table->char('kode_toko', 6);
             $table->integer('shift');
@@ -21,6 +22,9 @@ return new class extends Migration
             $table->integer('tabungan');
             $table->integer('aktual_kas');
             $table->char('approved', 1)->nullable()->default('');
+            $table->string('catatan')->nullable();
+            $table->string('alasan')->nullable();
+            $table->string('checker')->nullable();
             $table->timestamps();
         });
     }

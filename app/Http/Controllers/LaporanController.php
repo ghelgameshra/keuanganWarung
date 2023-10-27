@@ -11,7 +11,7 @@ class LaporanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         return view('dashboard.laporan.laporan', [
             'laporan' => Laporan::where('nik', auth()->user()->nik)->orderBy('id_laporan', 'desc')->get()
@@ -51,13 +51,10 @@ class LaporanController extends Controller
 
         $validatedData = $request->validate($rules);
         $validatedData['nik'] = userActive()[0]->nik;
+        $validatedData['docno'] = $data->docno + 1;
 
 
         $validatedData['aktual_kas'] = $validatedData['input_aktual_kas'] - $validatedData['tabungan'];
-
-        if( $validatedData['id_laporan'] === $data ){
-            return back(dd( tanggal_indonesia(Carbon::yesterday()) ));
-        }
 
         try {
             Laporan::create($validatedData);
