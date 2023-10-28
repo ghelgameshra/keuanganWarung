@@ -115,7 +115,7 @@ class LaporanController extends Controller
         $validatedData['id'] = $laporan->id;
         $validatedData['id_laporan'] = $laporan->id_laporan;
         $validatedData['docno'] = $laporan->docno;
-        $validatedData['nik'] = $laporan->nik;
+        $validatedData['id_karyawan'] = $laporan->id_karyawan;
         $validatedData['kode_toko'] = $laporan->kode_toko;
         $validatedData['shift'] = $laporan->shift;
         $validatedData['input_aktual_kas'] = $laporan->input_aktual_kas;
