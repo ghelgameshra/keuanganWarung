@@ -17,7 +17,6 @@ class laporan_seeder extends Seeder
         Laporan::create([
             'id_laporan' => '231022TSBY1',
             'docno' => 1,
-            'nik' => '2015451256',
             'kode_toko' => 'TSBY',
             'shift' => 1,
             'input_aktual_kas' => 1215000,
@@ -29,7 +28,6 @@ class laporan_seeder extends Seeder
         Laporan::create([
             'id_laporan' => '231023TSBY1',
             'docno' => 2,
-            'nik' => '2015451256',
             'kode_toko' => 'TSBY',
             'shift' => 1,
             'input_aktual_kas' => 2000000,
@@ -41,7 +39,6 @@ class laporan_seeder extends Seeder
         Laporan::create([
             'id_laporan' => Carbon::yesterday()->format('ymd')."TSBY1",
             'docno' => 3,
-            'nik' => '2015451256',
             'kode_toko' => 'TSBY',
             'shift' => 1,
             'input_aktual_kas' => 1300000,

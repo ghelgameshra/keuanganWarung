@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->char('id_laporan');
             $table->integer('docno');
-            $table->string('nik');
+            $table->string('nik')->change( $table->foreignId('id_karyawan')->default(2) );
             $table->char('kode_toko', 6);
             $table->integer('shift');
             $table->integer('input_aktual_kas');
