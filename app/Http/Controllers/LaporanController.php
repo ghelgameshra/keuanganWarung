@@ -58,6 +58,7 @@ class LaporanController extends Controller
         $validatedData = $request->validate($rules);
         $validatedData['nik'] = userActive()[0]->nik;
         $validatedData['docno'] = $data->docno + 1;
+        $validatedData['id_laporan'] = $validatedData['id_laporan'] . strval( str_pad($validatedData['docno'], 5, '0', STR_PAD_LEFT) );
 
 
         $validatedData['aktual_kas'] = $validatedData['input_aktual_kas'] - $validatedData['tabungan'];
