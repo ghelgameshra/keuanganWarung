@@ -1,15 +1,15 @@
 @extends('dashboard.partials.main')
 @section('title')
-  {{ auth()->user()->name }}
+  {{ $user->name }}
 @endsection
 
 @section('user_show')
 <main class="page-initial flex flex-col gap-5 w-full sm:w-[600px] h-screen mx-auto">
   <div class="text-dark-secondary flex items-center gap-3">
-    <img src="{{ "/storage/" . auth()->user()->profile_photo_path }}" alt="" class="w-14 h-14 rounded-full">
+    <img src="{{ "/storage/" . $user->profile_photo_path }}" alt="" class="w-14 h-14 rounded-full">
     <div>
-      <h1 class="font-bold font-xl">{{ userActive()[0]->nama_karyawan }}</h1>
-      <h2 class="text-sm">{{ userActive()[0]->nik . " | " . userActive()[0]->nama_jabatan }}</h2>
+      <h1 class="font-bold font-xl">{{ $user->Karyawan->nama_karyawan }}</h1>
+      <h2 class="text-sm">{{ $user->Karyawan->nik . " | " . $user->Karyawan->Jabatan->nama_jabatan }}</h2>
     </div>
   </div>
 

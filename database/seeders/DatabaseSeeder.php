@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Cabang;
+use App\Models\Checker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,7 +25,7 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'Super Admin',
-            'nik' => '2015451300',
+            'karyawan_id' => 1,
             'email' => 'superadmin@gmail.com',
             'level' => 1,
         ]);
@@ -32,14 +33,14 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'Rizky Andriawan',
-            'nik' => '2015451256',
+            'karyawan_id' => 2,
             'email' => 'rizkyandriawan33478@gmail.com',
             'level' => 2,
         ]);
 
         User::create([
             'name' => 'Andriawan',
-            'nik' => '2015451200',
+            'karyawan_id' => 3,
             'email' => 'rizkyandriawan@gmail.com',
         ]);
 
@@ -49,6 +50,14 @@ class DatabaseSeeder extends Seeder
 
         Cabang::create([
             'kode_cabang' => 'JBR'
+        ]);
+
+        Checker::create([
+            'karyawan_id' => 1,
+        ]);
+
+        Checker::create([
+            'karyawan_id' => 2,
         ]);
     }
 }

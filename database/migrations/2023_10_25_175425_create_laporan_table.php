@@ -24,7 +24,9 @@ return new class extends Migration
             $table->char('approved', 1)->nullable()->default('');
             $table->string('catatan')->nullable();
             $table->string('alasan')->nullable();
-            $table->string('checker')->nullable();
+            $table->string('checker')->nullable()->change(
+                $table->foreignId('checker_id')->default(1)
+            );
             $table->timestamps();
         });
     }

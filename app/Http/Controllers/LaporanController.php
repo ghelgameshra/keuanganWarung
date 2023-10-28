@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Checker;
+use App\Models\Karyawan;
 use App\Models\Laporan;
 use Illuminate\Http\Request;
 
@@ -14,11 +16,11 @@ class LaporanController extends Controller
     {
         if(getUserRole() == 1){
             return view('admin.laporan.laporan', [
-                'laporan' => Laporan::orderBy('docno', 'desc')->get()
+                'laporan' => Laporan::orderBy('docno', 'desc')->get(),
             ]);
         } else {
             return view('dashboard.laporan.laporan', [
-                'laporan' => Laporan::where('nik', auth()->user()->nik)->orderBy('docno', 'desc')->get()
+                'laporan' => Laporan::where('id_karyawan', auth()->user()->karyawan_id)->orderBy('docno', 'desc')->get()
             ]);
         }
 
@@ -29,14 +31,16 @@ class LaporanController extends Controller
      */
     public function create()
     {
-        $id_laporan_temp = now()->format('ymd') . userActive()[0]->kode_toko. userActive()[0]->shift;
+        $user = auth()->user();
+        $id_laporan_temp = now()->format('ymd') . $user->Karyawan->kode_toko . $user->Karyawan->shift;
 
         if( $id_laporan_temp === Controller::getDataId() ){
             return view('dashboard.laporan.sudah_input');
         }
 
-
-        return view('dashboard.laporan.laporan_input');
+        return view('dashboard.laporan.laporan_input', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -48,20 +52,31 @@ class LaporanController extends Controller
         $data = Controller::getDataId();
 
         $rules = [
-            'id_laporan' => 'required|String',
             'kode_toko' => 'required|String|max:6',
             'shift' => 'required|Integer|max:3',
             'tabungan' => 'required|Integer|min:0',
             'input_aktual_kas' => 'required|Integer',
+            'catatan' => 'String|nullable'
         ];
 
+        // validasi input
         $validatedData = $request->validate($rules);
-        $validatedData['nik'] = userActive()[0]->nik;
+
+        // buat docno baru
         $validatedData['docno'] = $data->docno + 1;
-        $validatedData['id_laporan'] = $validatedData['id_laporan'] . strval( str_pad($validatedData['docno'], 5, '0', STR_PAD_LEFT) );
 
+        // create id_laporan
+        $validatedData['id_laporan'] = now()->format('ymd');
+        $validatedData['id_laporan'] .= auth()->user()->Karyawan->kode_toko;
+        $validatedData['id_laporan'] .= auth()->user()->Karyawan->shift;
+        $validatedData['id_laporan'] .= strval( str_pad($validatedData['docno'], 5, '0', STR_PAD_LEFT) );
 
+        // id_karyawan
+        $validatedData['id_karyawan'] = auth()->user()->Karyawan->id;
+
+        // hitung aktual kas
         $validatedData['aktual_kas'] = $validatedData['input_aktual_kas'] - $validatedData['tabungan'];
+
 
         try {
             Laporan::create($validatedData);
@@ -76,6 +91,7 @@ class LaporanController extends Controller
      */
     public function show(Laporan $laporan)
     {
+        // dd($laporan->Checker);
         if( getUserRole() == 1 ){
             return view('admin.laporan.laporanDetail', [
                 'laporan' => $laporan
@@ -96,7 +112,8 @@ class LaporanController extends Controller
             abort(403);
         }
         return view('admin.laporan.laporanEdit', [
-            'laporan' => $laporan
+            'laporan' => $laporan,
+            'user' => auth()->user()
         ]);
     }
 
@@ -121,7 +138,7 @@ class LaporanController extends Controller
         $validatedData['input_aktual_kas'] = $laporan->input_aktual_kas;
         $validatedData['tabungan'] = $laporan->tabungan;
         $validatedData['aktual_kas'] = $laporan->aktual_kas;
-        $validatedData['checker'] = auth()->user()->nik;
+        $validatedData['checker_id'] = auth()->user()->Karyawan->id;
 
         // dd($validatedData);
         Laporan::where('id', $laporan->id)->update($validatedData);

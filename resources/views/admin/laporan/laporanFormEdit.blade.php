@@ -131,7 +131,7 @@
             Checker
           </th>
           <td class="px-6 py-3">
-            <input type="text" name="checker" class="laporan-input" value="{{ userActive()[0]->nik }}" readonly>
+            <input type="text" name="checker" class="laporan-input" value="{{ $user->Karyawan->nik }}" readonly>
           </td>
         </tr>
 
@@ -140,7 +140,7 @@
             Nama
           </th>
           <td class="px-6 py-3">
-            <input type="text" class="laporan-input" value="{{ userActive()[0]->nama_karyawan }}" readonly>
+            <input type="text" class="laporan-input" value="{{ $user->Karyawan->nama_karyawan }}" readonly>
           </td>
         </tr>
 

@@ -11,7 +11,7 @@ class Laporan extends Model
     protected $guarded = ['id'];
 
 
-    protected $with = ['karyawan'];
+    protected $with = ['karyawan', 'checker'];
     use HasFactory;
 
     public function  getRouteKeyName(){
@@ -21,5 +21,9 @@ class Laporan extends Model
     // relasi tabel laporan (karyawan has many laporan) dengan key ditabel karyawan=id, laporan=id_karyawan
     public function karyawan(){
         return $this->belongsTo(Karyawan::class, 'id_karyawan');
+    }
+
+    public function checker(){
+        return $this->belongsTo(Karyawan::class, 'checker_id');
     }
 }
