@@ -109,6 +109,6 @@
 
       </tbody>
     </table>
-    <button class="p-3 text-center w-full bg-green-500 rounded-lg text-white mt-3" type="submit" onclick="return confirm('Apakah yakin simpan aktual kas ?'
+    <button class="p-3 text-center w-full bg-green-500 rounded-lg text-white mt-3" type="submit" onclick="return confirm('lanjut proses update laporan ?')">Update Laporan</button>
   </form>
 </div>
