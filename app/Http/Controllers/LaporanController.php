@@ -91,7 +91,7 @@ class LaporanController extends Controller
      */
     public function show(Laporan $laporan)
     {
-        // dd($laporan->Checker);
+        // dd($laporan->Checker->nama_karyawan);
         if( getUserRole() == 1 ){
             return view('admin.laporan.laporanDetail', [
                 'laporan' => $laporan

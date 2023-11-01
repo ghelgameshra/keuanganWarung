@@ -89,6 +89,18 @@
           </td>
         </tr>
 
+        @if ( $laporan->catatan != null )
+        <tr class="border-b-gray-200 border-b-[1px]">
+          <th scope="row" class="px-6 py-3 font-medium whitespace-nowrap text-gray-900">
+            Catatan
+          </th>
+          <td class="px-6 py-3">
+            <input type="text" class="laporan-input"
+              value="{{ $laporan->catatan }}" readonly>
+          </td>
+        </tr>
+        @endif
+
         <tr class="border-b-gray-200 border-b-[1px]">
           <th scope="row" class="px-6 py-3 font-medium whitespace-nowrap text-gray-900">
             Tanggal Cek
