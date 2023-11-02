@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\SetorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,5 +26,8 @@ Route::middleware([
         Route::get('/dashboard', function () { return view('dashboard.dashboard'); })->name('dashboard');
         Route::get('/dashboard/profile', [DashboardController::class, 'profile']);
         Route::resource('/dashboard/laporan', LaporanController::class);
+
+        // setor
+        Route::resource('/dashboard/setor', SetorController::class);
     });
 

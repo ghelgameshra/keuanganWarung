@@ -19,6 +19,11 @@ class karyawan_seeder extends Seeder
         ]);
 
         Karyawan::create([
+            'nama_karyawan' => 'ADMINISTRATOR',
+            'nik' => '2015451301',
+        ]);
+
+        Karyawan::create([
             'nama_karyawan' => 'RIZKY ANDRIAWAN',
             'nik' => '2015451256',
             'kode_toko' => 'TSBY'

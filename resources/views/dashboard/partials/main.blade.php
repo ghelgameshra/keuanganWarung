@@ -19,6 +19,7 @@
 
 
   @yield('cek_input')
+  @yield('setoran')
 
 
 

@@ -15,8 +15,9 @@ class laporan_seeder extends Seeder
     public function run(): void
     {
         Laporan::create([
-            'id_laporan' => '231022TSBY1',
+            'id_laporan' => '231022TSBY100001',
             'docno' => 1,
+            'id_karyawan' => 2,
             'kode_toko' => 'TSBY',
             'shift' => 1,
             'input_aktual_kas' => 1215000,
@@ -26,8 +27,9 @@ class laporan_seeder extends Seeder
         ]);
 
         Laporan::create([
-            'id_laporan' => '231023TSBY1',
+            'id_laporan' => '231023TSBY100002',
             'docno' => 2,
+            'id_karyawan' => 2,
             'kode_toko' => 'TSBY',
             'shift' => 1,
             'input_aktual_kas' => 2000000,
@@ -37,8 +39,9 @@ class laporan_seeder extends Seeder
         ]);
 
         Laporan::create([
-            'id_laporan' => Carbon::yesterday()->format('ymd')."TSBY1",
+            'id_laporan' => Carbon::yesterday()->format('ymd')."TSBY10003",
             'docno' => 3,
+            'id_karyawan' => 2,
             'kode_toko' => 'TSBY',
             'shift' => 1,
             'input_aktual_kas' => 1300000,

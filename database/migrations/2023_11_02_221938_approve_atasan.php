@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cabang', function (Blueprint $table) {
-            $table->increments('id')->unique();
-            $table->char('kode_cabang', 5);
-            $table->string('nama_cabang');
+        Schema::create('approve_atasan', function (Blueprint $table) {
+            $table->id();
+            $table->string('jenis_approve');
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cabang');
+        Schema::dropIfExists('approve_atasan');
     }
 };
