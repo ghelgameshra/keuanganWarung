@@ -160,6 +160,8 @@
     </table>
   </div>
   <div>
-    <button class="p-3 text-center w-full bg-yellow-500 rounded-lg text-white mt-3" type="submit" onclick="return confirm('lanjut proses update laporan ?')">Update Laporan</button>
+    <button class="p-3 text-center w-full bg-yellow-500 rounded-lg text-white mt-3 flex items-center justify-center gap-3" type="submit" onclick="return confirm('lanjut proses update laporan ?')">
+      <i class="fa-regular fa-pen-to-square"></i>
+      Update Laporan</button>
   </div>
 </form>

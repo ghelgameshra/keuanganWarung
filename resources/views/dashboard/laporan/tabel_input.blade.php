@@ -109,6 +109,6 @@
 
       </tbody>
     </table>
-    <button class="p-3 text-center w-full bg-green-500 rounded-lg text-white mt-3" type="submit" onclick="return confirm('lanjut proses update laporan ?')">Update Laporan</button>
+    <button class="p-3 text-center w-full bg-green-500 rounded-lg text-white mt-3" type="submit" onclick="return confirm('lanjut proses update laporan ?')">Buat Laporan</button>
   </form>
 </div>

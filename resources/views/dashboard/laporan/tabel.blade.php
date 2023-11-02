@@ -71,8 +71,7 @@
           Tabungan
         </th>
         <td class="px-6 py-3">
-          <input type="text" class="laporan-input" value="Rp. {{ format_uang($laporan->tabungan) }}"
-            readonly>
+          <input type="text" class="laporan-input" value="Rp. {{ format_uang($laporan->tabungan) }}" readonly>
         </td>
       </tr>
 
@@ -81,62 +80,62 @@
           Aktual Kas
         </th>
         <td class="px-6 py-3">
-          <input type="text" class="laporan-input"
-            value="Rp. {{ format_uang($laporan->aktual_kas) }}" readonly>
+          <input type="text" class="laporan-input" value="Rp. {{ format_uang($laporan->aktual_kas) }}" readonly>
         </td>
       </tr>
 
-      @if ( $laporan->catatan != null )
-      <tr class="border-b-gray-200 border-b-[1px]">
-        <th scope="row" class="px-6 py-3 font-medium whitespace-nowrap text-gray-900">
-          Catatan
-        </th>
-        <td class="px-6 py-3">
-          <input type="text" class="laporan-input"
-            value="{{ $laporan->catatan }}" readonly>
-        </td>
-      </tr>
+      @if( $laporan->catatan != null )
+        <tr class="border-b-gray-200 border-b-[1px]">
+          <th scope="row" class="px-6 py-3 font-medium whitespace-nowrap text-gray-900">
+            Catatan
+          </th>
+          <td class="px-6 py-3">
+            <input type="text" class="laporan-input" value="{{ $laporan->catatan }}" readonly>
+          </td>
+        </tr>
       @endif
 
-      @if ( $laporan->alasan != null )
-      <tr class="border-b-gray-200 border-b-[1px]">
-        <th scope="row" class="px-6 py-3 font-medium whitespace-nowrap text-gray-900">
-          Alasan
-        </th>
-        <td class="px-6 py-3">
-          <p class="bg-white px-3 py-2 border border-gray-400 rounded-lg">{{ $laporan->alasan }}</p>
-        </td>
-      </tr>
+      @if( $laporan->alasan != null )
+        <tr class="border-b-gray-200 border-b-[1px]">
+          <th scope="row" class="px-6 py-3 font-medium whitespace-nowrap text-gray-900">
+            Alasan
+          </th>
+          <td class="px-6 py-3">
+            <p class="bg-white px-3 py-2 border border-gray-400 rounded-lg">{{ $laporan->alasan }}</p>
+          </td>
+        </tr>
       @endif
 
-      <tr class="border-b-gray-200 border-b-[1px]">
-        <th scope="row" class="px-6 py-3 font-medium whitespace-nowrap text-gray-900">
-          Tanggal Cek
-        </th>
-        <td class="px-6 py-3">
-          <input type="text" class="laporan-input" value="{{ tanggal_indonesia($laporan->updated_at) }}" readonly>
-        </td>
-      </tr>
+      @if($laporan->created_at != $laporan->updated_at)
+        <tr class="border-b-gray-200 border-b-[1px]">
+          <th scope="row" class="px-6 py-3 font-medium whitespace-nowrap text-gray-900">
+            Tanggal Cek
+          </th>
+          <td class="px-6 py-3">
+            <input type="text" class="laporan-input" value="{{ tanggal_indonesia($laporan->updated_at) }}" readonly>
+          </td>
+        </tr>
+      @endif
 
-      @if ( $laporan->checker_id != null )
-      <tr class="border-b-gray-200 border-b-[1px]">
-        <th scope="row" class="px-6 py-3 font-medium whitespace-nowrap text-gray-900">
-          Checker
-        </th>
-        <td class="px-6 py-3">
+      @if( $laporan->checker_id != null )
+        <tr class="border-b-gray-200 border-b-[1px]">
+          <th scope="row" class="px-6 py-3 font-medium whitespace-nowrap text-gray-900">
+            Checker
+          </th>
+          <td class="px-6 py-3">
 
-          <input type="text" class="laporan-input" value="{{ $laporan->Checker->nik }}" readonly>
-        </td>
-      </tr>
+            <input type="text" class="laporan-input" value="{{ $laporan->Checker->nik }}" readonly>
+          </td>
+        </tr>
 
-      <tr class="border-b-gray-200 border-b-[1px]">
-        <th scope="row" class="px-6 py-3 font-medium whitespace-nowrap text-gray-900">
-          Nama
-        </th>
-        <td class="px-6 py-3">
-          <input type="text" class="laporan-input" value="{{ $laporan->Checker->nama_karyawan }}" readonly>
-        </td>
-      </tr>
+        <tr class="border-b-gray-200 border-b-[1px]">
+          <th scope="row" class="px-6 py-3 font-medium whitespace-nowrap text-gray-900">
+            Nama
+          </th>
+          <td class="px-6 py-3">
+            <input type="text" class="laporan-input" value="{{ $laporan->Checker->nama_karyawan }}" readonly>
+          </td>
+        </tr>
       @endif
 
     </tbody>
