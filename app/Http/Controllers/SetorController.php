@@ -92,15 +92,18 @@ class SetorController extends Controller
 
         Setor::create($validatedData);
         Controller::tracelog('insert setor harian', 'sukses insert setor harian', $request->ip());
-        return redirect('/dashboard/setor')->with('success', 'Setor berhasil!');
+        return redirect('/dashboard/setor/' . $validatedData['invno'] )->with('success', 'Setor berhasil!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Setor $setor)
+    public function show(Setor $setor, Request $request)
     {
-        //
+        Controller::tracelog('detail ' . $setor->invno , 'tampil detail ' . $setor->invno, $request->ip());
+        return view('admin.setor.setoranDetail', [
+            'setoran' => $setor
+        ]);
     }
 
     /**

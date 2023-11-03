@@ -13,6 +13,10 @@ class Setor extends Model
     protected $with = ['JenisSetor', 'Cabang', 'Karyawan', 'ApproveAtasan'];
     use HasFactory;
 
+    public function getRouteKeyName(){
+        return 'invno';
+    }
+
     public function jenisSetor(){
         return $this->belongsTo(JenisSetor::class, 'jenis_setor');
     }
@@ -25,7 +29,7 @@ class Setor extends Model
         return $this->belongsTo(Karyawan::class, 'id_karyawan');
     }
 
-    public function approveAtasan(){
+    public function approveatasan(){
         return $this->belongsTo(ApproveAtasan::class, 'approve_atasan');
     }
 }

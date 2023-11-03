@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('nominal_setor');
             $table->text('keterangan')->nullable();
             $table->string('bukti_setor')->nullable();
-            $table->char('approve_atasan')->nullable();
+            $table->foreignId('approve_atasan')->default(1);
             $table->timestamps();
         });
     }
