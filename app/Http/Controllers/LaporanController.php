@@ -15,10 +15,12 @@ class LaporanController extends Controller
     public function index(Request $request)
     {
         if(getUserRole() == 1){
+            Controller::tracelog('input aktual kas', 'coba buka halaman input aktual kas', $request->ip());
             return view('admin.laporan.laporan', [
                 'laporan' => Laporan::orderBy('docno', 'desc')->get(),
             ]);
         } else {
+            Controller::tracelog('input aktual kas', 'buka halaman input aktual kas ok', $request->ip());
             return view('dashboard.laporan.laporan', [
                 'laporan' => Laporan::where('id_karyawan', auth()->user()->karyawan_id)->orderBy('docno', 'desc')->get()
             ]);
@@ -29,15 +31,17 @@ class LaporanController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
         $user = auth()->user();
         $id_laporan_temp = now()->format('ymd') . $user->Karyawan->kode_toko . $user->Karyawan->shift;
 
         if( $id_laporan_temp === Controller::getDataId() ){
+            Controller::tracelog('insert input aktual kas', 'insert input aktual kas sudah input aktual kas', $request->ip());
             return view('dashboard.laporan.sudah_input');
         }
 
+        Controller::tracelog('insert input aktual kas', 'insert input aktual kas ok', $request->ip());
         return view('dashboard.laporan.laporan_input', [
             'user' => $user
         ]);
@@ -80,6 +84,7 @@ class LaporanController extends Controller
 
         try {
             Laporan::create($validatedData);
+            Controller::tracelog('insert input aktual kas', 'sukses input aktual kas', $request->ip());
         } catch (\Throwable $th) {
             dd($th);
         }

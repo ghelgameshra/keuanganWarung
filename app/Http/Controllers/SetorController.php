@@ -14,12 +14,14 @@ class SetorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         if( auth()->user()->level > 1 ){
+            Controller::tracelog('halaman setor', 'lihat data', $request->ip());
             abort(403);
         }
 
+        Controller::tracelog('halaman setor', '', $request->ip());
         return view('admin.setor.setor', [
             'setor' => Setor::orderBy('docno', 'desc')->get()
         ]);
@@ -28,11 +30,14 @@ class SetorController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
         if( auth()->user()->level > 1 ){
+            Controller::tracelog('setor harian', 'coba buka menu buat setor', $request->ip());
             abort(403);
         }
+
+        Controller::tracelog('setor harian', 'buka menu buat setor', $request->ip());
         return view('admin.setor.setoranBaru', [
             'jenis_setor' => JenisSetor::orderBy('jenis_setor', 'desc')->get(),
             'cabang' => Cabang::orderBy('nama_cabang', 'desc')->get()
@@ -45,6 +50,7 @@ class SetorController extends Controller
     public function store(Request $request)
     {
         if( auth()->user()->level > 1 ){
+            Controller::tracelog('insert setor harian', 'coba insert setoran harian', $request->ip());
             redirect('/');
         }
 
@@ -85,6 +91,7 @@ class SetorController extends Controller
         }
 
         Setor::create($validatedData);
+        Controller::tracelog('insert setor harian', 'sukses insert setor harian', $request->ip());
         return redirect('/dashboard/setor')->with('success', 'Setor berhasil!');
     }
 
