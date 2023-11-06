@@ -14,8 +14,8 @@ class LaporanController extends Controller
      */
     public function index(Request $request)
     {
-        if(getUserRole() == 1){
-            Controller::tracelog('input aktual kas', 'coba buka halaman input aktual kas', $request->ip());
+        if(getUserRole() < 2){
+            Controller::tracelog('input aktual kas', 'lihat semua data input aktual kas', $request->ip());
             return view('admin.laporan.laporan', [
                 'laporan' => Laporan::orderBy('docno', 'desc')->get(),
             ]);

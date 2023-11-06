@@ -29,5 +29,6 @@ Route::middleware([
 
         // setor
         Route::resource('/dashboard/setor', SetorController::class);
+        Route::get('/dashboard/rangkuman', [DashboardController::class, 'rangkuman']);
     });
 

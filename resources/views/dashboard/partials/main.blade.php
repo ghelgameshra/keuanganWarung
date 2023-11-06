@@ -20,6 +20,7 @@
 
   @yield('cek_input')
   @yield('setoran')
+  @yield('rangkuman')
 
 
 
