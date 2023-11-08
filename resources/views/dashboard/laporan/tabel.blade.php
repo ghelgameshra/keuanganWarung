@@ -95,17 +95,6 @@
         </tr>
       @endif
 
-      @if( $laporan->alasan != null )
-        <tr class="border-b-gray-200 border-b-[1px]">
-          <th scope="row" class="px-6 py-3 font-medium whitespace-nowrap text-gray-900">
-            Alasan
-          </th>
-          <td class="px-6 py-3">
-            <p class="bg-white px-3 py-2 border border-gray-400 rounded-lg">{{ $laporan->alasan }}</p>
-          </td>
-        </tr>
-      @endif
-
       @if($laporan->created_at != $laporan->updated_at)
         <tr class="border-b-gray-200 border-b-[1px]">
           <th scope="row" class="px-6 py-3 font-medium whitespace-nowrap text-gray-900">
@@ -137,6 +126,19 @@
           </td>
         </tr>
       @endif
+
+      @if( $laporan->alasan != null )
+        <tr class="border-b-gray-200 border-b-[1px]">
+          <th scope="row" class="px-6 py-3 font-medium whitespace-nowrap text-gray-900">
+            Alasan
+          </th>
+          <td class="px-6 py-3">
+            <p class="bg-white px-3 py-2 border border-gray-400 rounded-lg">{{ $laporan->alasan }}</p>
+          </td>
+        </tr>
+      @endif
+
+
 
     </tbody>
   </table>

@@ -70,8 +70,8 @@ class LaporanController extends Controller
         $validatedData['docno'] = $data->docno + 1;
 
         // create id_laporan
-        $validatedData['id_laporan'] = now()->format('ymd');
-        $validatedData['id_laporan'] .= auth()->user()->Karyawan->kode_toko;
+        $validatedData['id_laporan'] = auth()->user()->Karyawan->kode_toko;
+        $validatedData['id_laporan'] .= now()->format('ymd');
         $validatedData['id_laporan'] .= auth()->user()->Karyawan->shift;
         $validatedData['id_laporan'] .= strval( str_pad($validatedData['docno'], 5, '0', STR_PAD_LEFT) );
 
@@ -144,6 +144,11 @@ class LaporanController extends Controller
         $validatedData['tabungan'] = $laporan->tabungan;
         $validatedData['aktual_kas'] = $laporan->aktual_kas;
         $validatedData['checker_id'] = auth()->user()->Karyawan->id;
+
+        if($request->alasan == null){
+            $validatedData['alasan'] = $laporan->alasan;
+        }
+
 
         // dd($validatedData);
         Laporan::where('id', $laporan->id)->update($validatedData);

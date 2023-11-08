@@ -14,7 +14,7 @@ class Controller extends BaseController
 
     public function getDataId(){
         // get data laporan terakhir
-        return Laporan::orderBy('id_laporan', 'desc')->first();
+        return Laporan::orderBy('docno', 'desc')->first();
     }
 
     // tracelog

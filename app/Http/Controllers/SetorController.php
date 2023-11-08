@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cabang;
 use App\Models\JenisSetor;
+use App\Models\Laporan;
 use App\Models\Setor;
 use Illuminate\Http\Request;
 
@@ -21,9 +22,16 @@ class SetorController extends Controller
             abort(403);
         }
 
+        $laporanPending = Laporan::where('approved' , '')->count();
+        $laporanSelesai = Laporan::where('approved' , 'Y')->count();
+        $laporanDitolak = Laporan::where('approved' , 'N')->count();
+
         Controller::tracelog('halaman setor', '', $request->ip());
         return view('admin.setor.setor', [
-            'setor' => Setor::orderBy('docno', 'desc')->get()
+            'setor' => Setor::orderBy('docno', 'desc')->get(),
+            'laporanPending' => $laporanPending,
+            'laporanSelesai' => $laporanSelesai,
+            'laporanDitolak' => $laporanDitolak
         ]);
     }
 
