@@ -3,14 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
-use App\Models\ApproveAtasan;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Cabang;
 use App\Models\Checker;
-use App\Models\JenisSetor;
 use App\Models\Setor;
+use App\Models\WebApp;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,7 +22,9 @@ class DatabaseSeeder extends Seeder
             karyawan_seeder::class,
             laporan_seeder::class,
             level_seeder::class,
-            toko_seeder::class
+            toko_seeder::class,
+            JenisSetorSeeder::class,
+            ApproveAtasanSeeder::class
         ]);
 
         User::create([
@@ -73,18 +73,6 @@ class DatabaseSeeder extends Seeder
             'karyawan_id' => 2,
         ]);
 
-        JenisSetor::create([
-            'jenis_setor' => 'TRANSFER BANK'
-        ]);
-
-        JenisSetor::create([
-            'jenis_setor' => 'CASH'
-        ]);
-
-        JenisSetor::create([
-            'jenis_setor' => 'TOP UP'
-        ]);
-
 
         Setor::create([
             'invno' => 'STRMLG' . now()->format('Ymd') . '00001',
@@ -108,20 +96,12 @@ class DatabaseSeeder extends Seeder
             'approve_atasan' => 2,
         ]);
 
-        ApproveAtasan::create([
-            'jenis_approve' => 'DALAM PENGECEKAN'
-        ]);
 
-        ApproveAtasan::create([
-            'jenis_approve' => 'DISETUJUI'
-        ]);
-
-        ApproveAtasan::create([
-            'jenis_approve' => 'DITOLAK'
-        ]);
-
-        ApproveAtasan::create([
-            'jenis_approve' => 'BUTUH REVISI'
+        WebApp::create([
+            'code_name' => 'Alpha',
+            'major_version' => 0,
+            'minor_version' => 0,
+            'patch_version' => 3
         ]);
     }
 }
