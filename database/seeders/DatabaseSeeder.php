@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Absensi;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Cabang;
@@ -24,35 +26,9 @@ class DatabaseSeeder extends Seeder
             level_seeder::class,
             toko_seeder::class,
             JenisSetorSeeder::class,
-            ApproveAtasanSeeder::class
-        ]);
-
-        User::create([
-            'name' => 'Super Admin',
-            'karyawan_id' => 1,
-            'email' => 'superadmin@gmail.com',
-            'level' => 1,
-        ]);
-
-        User::create([
-            'name' => 'Super Admin2',
-            'karyawan_id' => 2,
-            'email' => 'superadmin2@gmail.com',
-            'level' => 1,
-        ]);
-
-
-        User::create([
-            'name' => 'Rizky Andriawan',
-            'karyawan_id' => 3,
-            'email' => 'rizkyandriawan33478@gmail.com',
-            'level' => 2,
-        ]);
-
-        User::create([
-            'name' => 'Andriawan',
-            'karyawan_id' => 4,
-            'email' => 'rizkyandriawan@gmail.com',
+            ApproveAtasanSeeder::class,
+            JenisAbsenSeeder::class,
+            UserSeeder::class
         ]);
 
         Cabang::create([

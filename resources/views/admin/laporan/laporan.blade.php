@@ -4,16 +4,16 @@
 @endsection
 
 @section('laporan')
-<main class="relative w-full sm:w-[600px] h-screen mx-auto">
+<main class="relative w-full sm:w-[600px] h-screen mx-auto bg-slate-50">
   {{-- laporan content --}}
-  <div class="px-10 py-20 flex flex-col gap-4 overflow-y-auto">
-    <h1 class="font-bold text-lg">Daftar Laporan</h1>
+  <div class="px-10 py-5 flex flex-col gap-4 overflow-y-auto bg-blue-600 h-screen">
+    <h1 class="font-bold text-xl text-center mb-5 text-white">DAFTAR LAPORAN</h1>
 
     {{-- laporan history container --}}
     <div class="flex flex-col gap-3">
       {{-- laporan history --}}
       @foreach ($laporan as $data)
-      <div class="flex gap-4 items-center bg-white rounded-md px-4 py-5">
+      <div class="flex gap-4 items-center bg-slate-50 rounded-md px-4 py-5">
         <div class="text-2xl">
           @if ($data->approved === 'Y')
           <i class="fa-regular fa-circle-check text-green-500"></i>

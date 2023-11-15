@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\SetorController;
@@ -30,5 +31,9 @@ Route::middleware([
         // setor
         Route::resource('/dashboard/setor', SetorController::class);
         Route::get('/dashboard/rangkuman', [DashboardController::class, 'rangkuman']);
+
+        // absensi
+        Route::resource('/absen', AbsenController::class);
+        Route::post('/absen/update', [AbsenController::class, 'update'])->name('absen.update');
     });
 

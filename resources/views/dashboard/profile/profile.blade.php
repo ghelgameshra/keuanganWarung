@@ -4,7 +4,7 @@
 @endsection
 
 @section('user_show')
-<main class="page-initial flex flex-col gap-5 w-full sm:w-[600px] h-screen mx-auto">
+<main class="py-5 px-10 flex flex-col gap-5 w-full sm:w-[600px] h-screen mx-auto bg-slate-50">
   <div class="text-dark-secondary flex items-center gap-3">
     <img src="{{ "/storage/" . $user->profile_photo_path }}" alt="" class="w-14 h-14 rounded-full">
     <div>
@@ -58,7 +58,7 @@
   </div>
 
 
-  <a href="#" class="p-3 bg-red-300 rounded-lg font-bold text-center text-red-800 mt-auto" onclick="$('#logout-form').submit()">Logout</a>
+  <a href="#" class="p-3 bg-red-300 rounded-lg font-bold text-center text-red-800" onclick="$('#logout-form').submit()">Logout</a>
 
 
 </main>

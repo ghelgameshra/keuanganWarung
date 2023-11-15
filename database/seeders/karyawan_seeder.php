@@ -34,5 +34,12 @@ class karyawan_seeder extends Seeder
             'nik' => '2015451200',
             'kode_toko' => 'TGJY'
         ]);
+
+        Karyawan::create([
+            'nama_karyawan' => 'KARYAWAN 1',
+            'nik' => '2015451201',
+            'kode_toko' => 'TSBY',
+            'shift' => 2,
+        ]);
     }
 }

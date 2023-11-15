@@ -6,9 +6,9 @@ Monitoring | Setor
 @section('setoran')
 <main class="relative w-full sm:w-[600px] h-screen mx-auto">
   {{-- setor content --}}
-  <div class="px-10 py-20 flex flex-col gap-4 overflow-y-auto relative">
+  <div class="px-5 py-5 flex flex-col gap-4 overflow-y-auto relative bg-blue-600 h-screen">
     <div class="flex items-center">
-      <h1 class="font-bold text-lg text-dark-secondary">DAFTAR SETOR HARIAN</h1>
+      <h1 class="font-bold text-lg text-white mx-auto">DAFTAR SETOR HARIAN</h1>
       <a href="/dashboard/setor/create"
         class="hidden py-1 px-3 sm:flex gap-2 ml-auto bg-green-400 text-white items-center rounded-lg">
         <i class="fa-solid fa-plus"></i>

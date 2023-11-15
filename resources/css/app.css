@@ -15,7 +15,7 @@
 }
 
 .page-initial{
-    @apply px-10 py-20;
+    @apply py-20;
 }
 
 .laporan-input{

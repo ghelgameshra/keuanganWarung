@@ -1,5 +1,5 @@
 <div class="relative overflow-x-auto">
-    <table class="w-full text-sm text-left text-dark-secondary bg-gray-100 rounded-lg">
+    <table class="w-full text-sm text-left text-dark-secondary bg-slate-100 rounded-lg">
         <tbody>
             <tr class="border-b-gray-200 border-b-[1px]">
                 <th scope="row" class="px-6 py-3 font-medium whitespace-nowrap text-gray-900">
@@ -149,7 +149,7 @@
 
 </div>
 <a href="/dashboard/laporan/{{ $laporan->id_laporan }}/edit"
-    class="p-3 text-center w-full bg-yellow-500 rounded-lg text-white mt-3 flex items-center justify-center gap-3">
+    class="p-3 text-center w-full bg-yellow-400 rounded-lg text-white mt-3 flex items-center justify-center gap-3">
     <i class="fa-solid fa-angle-right"></i>
     Cek Laporan
 </a>

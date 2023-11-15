@@ -9,9 +9,7 @@
   <script src="{{ asset('/js/code.jquery.com_jquery-3.7.1.js') }}"></script>
 </head>
 
-<body class="h-screen flex flex-col overflow-y-auto bg-slate-200">
-  @include('dashboard.partials.navbar')
-
+<body class="h-screen flex flex-col overflow-y-auto">
 
   @yield('dashboard')
   @yield('laporan')
@@ -44,6 +42,7 @@
     }
   </script>
   @stack('inputAktualScript')
+  @stack('successModal')
 </body>
 
 </html>

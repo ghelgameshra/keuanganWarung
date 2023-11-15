@@ -1,5 +1,5 @@
 <div class="relative overflow-x-auto shadow-lg sm:rounded-lg rounded-lg">
-  <div class="mx-auto text-center py-10 flex flex-col gap-3 bg-gray-100">
+  <div class="mx-auto text-center py-10 flex flex-col gap-3 bg-slate-50">
     @if ($setoran->approve_atasan === 2)
     <i class="text-3xl fa-regular fa-circle-check text-green-500"></i>
     <p class="font-xs text-green-500">Diterima</p>

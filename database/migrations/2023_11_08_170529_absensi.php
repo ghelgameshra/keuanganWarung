@@ -13,10 +13,16 @@ return new class extends Migration
     {
         Schema::create('absensi', function (Blueprint $table) {
             $table->id();
+            $table->char('toko');
             $table->string('nik');
             $table->string('kode_absen');
             $table->foreignId('id_karyawan');
+            $table->integer('docno');
+            $table->boolean('terlambat');
+            $table->time('jam_datang')->default(now());
+            $table->time('jam_pulang')->nullable();
             $table->foreignId('jenis_absen');
+            $table->string('bukti_absen')->nullable();
             $table->timestamps();
         });
     }

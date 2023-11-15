@@ -1,5 +1,5 @@
+<form action="/dashboard/laporan" method="POST">
 <div class="relative overflow-x-auto">
-  <form action="/dashboard/laporan" method="POST">
     @csrf
     <table class="w-full text-sm text-left text-dark-secondary bg-gray-100 rounded-lg">
       <tbody>
@@ -109,6 +109,6 @@
 
       </tbody>
     </table>
-    <button class="p-3 text-center w-full bg-green-500 rounded-lg text-white mt-3" type="submit" onclick="return confirm('lanjut proses update laporan ?')">Buat Laporan</button>
-  </form>
-</div>
+  </div>
+  <button class="p-3 text-center w-full bg-green-500 rounded-lg text-white mt-3" type="submit" onclick="return confirm('lanjut proses update laporan ?')">Buat Laporan</button>
+</form>

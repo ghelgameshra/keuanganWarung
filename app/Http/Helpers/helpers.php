@@ -56,3 +56,12 @@ function userActive(){
 function getUserRole(){
     return auth()->user()->level;
 }
+
+function getAbsenTerakhir(){
+    $user = auth()->user();
+
+    $absenTerakhir = DB::select("SELECT kode_absen FROM absensi WHERE toko = '" . $user->Karyawan->kode_toko . "' AND nik = '" . $user->Karyawan->nik . "' ORDER BY docno DESC");
+
+    $absenTerakhir = $absenTerakhir[0];
+    return $absenTerakhir;
+}
